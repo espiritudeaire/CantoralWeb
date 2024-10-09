@@ -1,0 +1,81 @@
+<%- include("templates/cabecera"); %>
+
+    <%- include("templates/header"); %>
+
+        <input type="search" name="" id="" placeholder="Buscar usuario">
+
+        <table>
+            <thead>
+                <th>Nombre</th>
+                <th>Apellido (s)</th>
+                <th>Usuario</th>
+                <th>Nivel</th>
+                <th>Acciones</th>
+            </thead>
+            <tbody>
+                <% allUsers.forEach(user=> { %>
+                    <tr>
+                        <td>
+                            <%= user.name %>
+                        </td>
+                        <td>
+                            <%= user.last_name %>
+                        </td>
+                        <td>
+                            <%= user.user_name %>
+                        </td>
+                        <td>
+                            <%= user.level %>
+                        </td>
+                        <td>
+                            <a href="">
+                                <span class="material-symbols-outlined">
+                                    delete
+                                </span>
+                            </a>
+                        </td>
+                    </tr>
+                    <% }) %>
+
+            </tbody>
+        </table>
+
+        <button type="button" class="btn crear_usuario"
+            onclick="document.getElementById('modal_user_config').style.display='block'">Crear Usuario</button>
+
+        <div class="modal" id="modal_user_config">
+            <div id="modal_container" class="modal_container">
+                <form action="" method="post">
+                    <button type="button" class="btn_close"
+                        onclick="document.getElementById('modal_user_config').style.display='none'">
+                        <span class="material-symbols-outlined">
+                            close
+                        </span>
+                    </button>
+
+                    <label for="name">Nombre:</label>
+                    <input type="text" name="name" id="name">
+
+                    <label for="last_name">Apellido(s):</label>
+                    <input type="text" name="last_name" id="last_name">
+
+                    <label for="user_name">Nombre de Usuario:</label>
+                    <input type="text" name="user_name" id="user_name">
+
+                    <label for="password">Contraseña:</label>
+
+                    <input type="password" name="password" id="password">
+                    <span style="display: block;"><input type="checkbox" onclick="showPassword()">Mostrar
+                        contraseña</span>
+
+                    <a href="#">Generar contraseña</a>
+                    <div class="buttons">
+                        <button type="submit" class="btn crear">Crear</button>
+                        <button type="button" class="btn cancelar">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <%- include("templates/footer"); %>
+            <script src="../js/user_config.js"></script>

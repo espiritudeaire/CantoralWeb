@@ -1,113 +1,129 @@
+/* Contenedor principal de la sección de canto */
 #container_section_canto {
     position: relative;
     margin: 0 5%;
-    overflow: auto;
+    overflow: auto; /* Permite que el contenido se desplace si excede el tamaño del contenedor */
 }
 
+/* Estilo para los acordes dentro de la letra de la canción */
 .chord {
-    color: var(--color-chords);
+    color: var(--color-chords); /* Color de los acordes basado en una variable CSS */
     font-style: normal;
     font-size: large;
 }
 
+/* Margen para la sección de canto y el contenedor de etiquetas */
 #section_canto,
 .tags_container {
     margin: 10px 15px 0 15px;
 }
 
+/* Estilo para la sección de información de la canción */
 #info_song {
-    border-bottom: 1px solid var(--color-primary);
+    border-bottom: 1px solid var(--color-primary); /* Línea inferior de separación */
     margin-top: 20px;
 }
 
+/* Estilo para el nombre de la canción */
 .name_song {
     font-size: 30px;
 }
 
+/* Estilo para el nombre del compositor */
 .name_composer {
     font-size: 20px;
 }
 
+/* Contenedor de la letra y acordes de la canción */
 #song_lyric_chords {
     margin-top: 10px;
     position: relative;
 }
 
+/* Estilo para la letra de la canción */
+#lyrics {
+    margin: 20px 0 20px 0;
+    max-width: 300px; /* Limita el ancho de la letra de la canción */
+}
+
+/* Contenedor para las etiquetas asociadas a la canción */
 .tags_container {
-    border-top: 1px solid var(--color-primary);
-    /* border-radius: 10px; */
+    border-top: 1px solid var(--color-primary); /* Línea superior de separación */
     padding: 10px;
     margin-bottom: 20px;
     font-size: smaller;
 }
 
+/* Contenedor para los botones de acciones */
 .container_actions_buttons {
-    position: absolute;
-    
-    top: 0;
-    right: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    margin-top: 30px;
+    border-bottom: 1px solid var(--color-footer); /* Línea inferior de separación */
+    padding-bottom: 25px;
 }
 
+/* Estilos para los botones dentro de las acciones de canciones */
 .botones_cambios_cancion button,
 .actions_songs a,
 .button {
     width: 50px;
     height: 50px;
     padding: 10px;
-    border-radius: 50%;
-    
+    border-radius: 50%; /* Botones con forma circular */
     text-align: center;
     vertical-align: center;
     border: 1px solid;
     margin-bottom: 5px;
-    cursor: grab;
+    cursor: grab; /* Cursor cambia a mano para indicar que el botón es arrastrable */
 }
 
+/* Estilo base para los diferentes grupos de botones */
 .botones_cambios_cancion,
 .actions_songs,
 .button_menu_changes,
 .button_menu_updates,
 .button_back,
 .button_add_to_list {
-    /* display: flex;
-    flex-direction: column; */
-    display: none;
+    display: none; /* Se ocultan los botones por defecto */
 }
 
+/* Estilo base para los botones individuales */
 .button {
     color: black;
     background-color: white;
     position: relative;
 }
 
+/* Efecto hover para los botones, cambiando su color */
 .button:hover {
     color: var(--color-primary);
 }
 
+/* Clase para activar los botones mostrando su contenido */
 .active_button {
     display: flex;
     flex-direction: column;
 }
 
+/* Clase para desactivar los botones ocultándolos */
 .inactive_button {
     display: none;
 }
 
-/* .botones_cambios_cancion {
-    position: relative;
-}  */
-
+/* Tooltip de texto para los botones, se posiciona debajo de los mismos */
 .text_tooltip {
-    width: 170px;
-    color: var(--color-primary);
-    text-align: right;
-    right: 60px;
     position: absolute;
+    top: 60px;
+    white-space: nowrap; /* Evita que el texto se divida en líneas */
     z-index: 2;
-    visibility: hidden;
+    visibility: hidden; /* Inicialmente oculto */
     font-size: 17px;
+    color: var(--color-primary);
 }
 
+/* Muestra el tooltip cuando el botón es hover */
 .button:hover .text_tooltip {
     visibility: visible;
 }

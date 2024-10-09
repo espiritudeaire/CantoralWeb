@@ -2,13 +2,13 @@
     <%- include("templates/header"); %>
 
         <div class="container_lista_especifica">
-            
+
 
 
             <div>
                 <span id="id_lista" data-id-lista="<%= idLista %>"></span>
                 <%if (lista){ %>
-                    
+
                     <% if (lista.lists[0].songs.length===0) { %>
                         <i>
                             <p>No hay canciones en la lista</p>
@@ -19,12 +19,10 @@
                                 </h1>
                             </div>
                             <div class="container_table_songs_list">
-                                <table>
+                                <table id="table_songs_list" class="table_songs_list">
                                     <tbody id="tbody_songs_list">
                                         <% if (lista.lists[0].songs.length!==0){ %>
-
                                             <% lista.lists[0].songs.forEach(song=> { %>
-
                                                 <tr id="<%= song._id %>" class="tr_songs_on_list">
                                                     <td class="td_songs_on_list"><a
                                                             href=<%=`/api/getSong?id=${song._id}&lista=true&idLista=${lista.lists[0]._id}`%>
@@ -48,7 +46,7 @@
                                         href=<%=`/api/getSong?id=${lista.lists[0].songs[0]._id}&lista=true&idLista=${lista.lists[0]._id}`%>>
                                         <span class="material-symbols-outlined">
                                             play_circle
-                                            </span>Comenzar
+                                        </span> Comenzar
                                     </a>
                                     <% } %>
                             </div>

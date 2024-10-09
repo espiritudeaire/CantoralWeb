@@ -14,11 +14,11 @@ function etiquetarAcordes() {
     let elementoCanto = document.getElementById('song_lyric_chords').getElementsByTagName('pre')[0];
     let canto_lyrics = elementoCanto.innerText;
     let lineas = canto_lyrics.split('\n');
-    
+
     const regAcordes = /(?<!\w)([A-G])(#|b)?(maj|m|dim)?7?\(?((#|b)?(5|9|11|13)|maj)?\)?\(?(#|b)?(5|9|11|13)?\)?(\/[A-G](#|b)?)?(?!\w)/gm;
     const regAcordesEnTexto = /-(?<!\w)([A-G])(#|b)?(maj|m|dim)?7?\(?((#|b)?(5|9|11|13)|maj)?\)?\(?(#|b)?(5|9|11|13)?\)?(\/[A-G](#|b)?)?(?!\w)-/gm
     elementoCanto.innerHTML = canto_lyrics.replace(regAcordes, chord => {
-        return `<span class='chord'>${chord}</span>`; 
+        return `<span class='chord'>${chord}</span>`;
     });
 }
 
